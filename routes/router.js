@@ -4,13 +4,14 @@ var User = require('../models/user');
 
 
 // GET route for reading data
-router.get('/', function (req, res, next) {
-  return res.sendFile(path.join(__dirname + '/templateLogReg/index.html'));
-});
+// router.get('/', function (req, res, next) {
+//   return res.sendFile(path.join(__dirname + '/templateLogReg/index.html'));
+// });
 
 
 //POST route for updating data
-router.post('/', function (req, res, next) {
+router.post('/auth', function (req, res, next) {
+  console.log(req.body)
   // confirm that user typed same password twice
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
