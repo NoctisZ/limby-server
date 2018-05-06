@@ -1,9 +1,9 @@
 {
-  "name": "authenticationIntro",
+  "name": "limby-authentication",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/DDCSLearning/authenticationIntro.git",
-  "author": "DanielDeutsch <deudan1010@gmail.com>",
+  "repository": "https://github.com/dimitri88/limby-server",
+  "author": "limby2.0",
   "license": "none",
   "scripts": {
     "start": "node app",
