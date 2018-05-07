@@ -6,7 +6,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 //connect to MongoDB
-mongoose.connect('mongodb://localhost/limby-uauth');
+mongoose.connect('mongodb://root:toor@ds155577.mlab.com:55577/limby');
 
 var db = mongoose.connection;
 //handle mongo error
