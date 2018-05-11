@@ -13,23 +13,11 @@ var User = require('../models/user');
 router.post('/auth', function (req, res, next) {
   console.log(req.body)
   // confirm that user typed same password twice
-  if (req.body.password !== req.body.passwordConf) {
-    var err = new Error('Passwords do not match.');
-    err.status = 400;
-    res.send("passwords dont match");
-    return next(err);
-  }
 
-  if (req.body.email &&
-    req.body.username &&
-    req.body.password &&
-    req.body.passwordConf) {
-
+  if (req.body.email && req.body.password) {
     var userData = {
       email: req.body.email,
-      username: req.body.username,
       password: req.body.password,
-      passwordConf: req.body.passwordConf,
     }
 
     User.create(userData, function (error, user) {
@@ -37,7 +25,7 @@ router.post('/auth', function (req, res, next) {
         return next(error);
       } else {
         req.session.userId = user._id;
-        return res.redirect('/profile');
+        return res.sendStatus(200)
       }
     });
 
@@ -71,7 +59,7 @@ router.get('/profile', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
-          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+        //return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
         }
       }
     });
